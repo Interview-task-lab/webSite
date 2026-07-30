@@ -13,8 +13,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const tagDisplay = slug.replace(/-/g, " ");
   return {
-    title: `Etiket: ${tagDisplay} - Başbuğa Metal`,
+    title: `Etiket: ${tagDisplay} | Başbuğa Metal`,
     description: `${tagDisplay} etiketli güncel blog rehberleri.`,
+    openGraph: {
+      title: `Etiket: ${tagDisplay} | Başbuğa Metal`,
+      description: `${tagDisplay} etiketli güncel blog rehberleri.`,
+      url: `/tag/${slug}`,
+    },
+    alternates: { canonical: `/tag/${slug}` },
   };
 }
 

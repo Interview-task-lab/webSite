@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 
 const galleryItems = [
@@ -84,10 +85,13 @@ export default function WorkGallery() {
                   index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
                 }`}
               >
-                <img
+                <Image
                   src={item.src}
                   alt={item.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 1200px) 100vw, 1200px"
+                  className="object-cover"
+                  priority={index === 0}
                 />
 
                 {/* Bottom Overlay Gradient & Caption */}

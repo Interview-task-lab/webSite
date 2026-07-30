@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone, ChevronDown, Wrench, Shield, Layers, DoorOpen, ChevronRight } from "lucide-react";
 
 export default function Navbar() {
@@ -77,10 +78,13 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-3 group">
-              <img
+              <Image
                 src="/images/logos/logo_dark.jpeg"
-                alt="BAŞBUĞA METAL Logo"
-                className="h-11 w-11 object-cover rounded-xl border border-slate-800 shadow-md group-hover:border-amber-500/50 transition-all duration-300"
+                alt="Başbuğa Metal Ankara Demir Doğrama Logo"
+                width={44}
+                height={44}
+                className="object-cover rounded-xl border border-slate-800 shadow-md group-hover:border-amber-500/50 transition-all duration-300"
+                priority
               />
               <div className="flex flex-col">
                 <span className="text-xl font-black tracking-wider bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-200 bg-clip-text text-transparent leading-none">

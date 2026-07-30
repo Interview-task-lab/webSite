@@ -4,8 +4,48 @@ import WorkGallery from "@/components/WorkGallery";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { CheckCircle2, Zap, Hammer, ShieldCheck, Award, Phone, Layers, DoorOpen, Shield, Wrench, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import type { Metadata } from "next";
 
-export const revalidate = 3600; // Cache page for 1 hour
+export const revalidate = 3600;
+
+// ⚠️ SITE_URL: Alan adı alındığında burayı güncelleyin
+const SITE_URL = "https://basbugametal.com";
+
+export const metadata: Metadata = {
+  title: "Başbuğa Metal - Ankara Demir Doğrama & Çelik Yapı İmalatı",
+  description:
+    "Ankara genelinde asma kat, ağır çelik, sürgülü bahçe kapısı, ferforje korkuluk, demir merdiven ve çelik konstrüksiyon imalatı. 15 farklı imalat alanı, 5 yıl garanti.",
+  openGraph: {
+    title: "Başbuğa Metal - Ankara Demir Doğrama & Çelik Yapı İmalatı",
+    description:
+      "Asma kat, sürgülü kapı, korkuluk ve çelik konstrüksiyon imalatında 15 yıllık tecrübe. Ücretsiz keşif & 5 yıl garanti.",
+    url: SITE_URL,
+    images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: "Başbuğa Metal" }],
+  },
+  alternates: { canonical: "/" },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Başbuğa Metal",
+  url: SITE_URL,
+  description: "Ankara genelinde demir doğrama, çelik yapı ve metal imalat hizmetleri.",
+  publisher: {
+    "@type": "Organization",
+    name: "Başbuğa Metal",
+    logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logos/logo_dark.jpeg` },
+    telephone: "+905079888206",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Önder Mahallesi Çamlıtepe Caddesi 64/1",
+      addressLocality: "Altındağ",
+      addressRegion: "Ankara",
+      addressCountry: "TR",
+    },
+  },
+};
 
 export default async function HomePage() {
   const waPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "905079888206";
@@ -78,6 +118,12 @@ export default async function HomePage() {
 
   return (
     <div className="relative overflow-hidden bg-slate-950">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
+
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 border-b border-slate-900 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/80 via-slate-950 to-slate-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -131,10 +177,13 @@ export default async function HomePage() {
             {/* Hero Right Visuals */}
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-800 group aspect-[4/3] sm:aspect-[16/10] lg:aspect-square">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80"
-                  alt="Başbuğa Metal çelik ve demir imalatı"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt="Başbuğa Metal Ankara çelik ve demir imalatı atölyesi"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
               </div>

@@ -4,6 +4,8 @@ import Sidebar from "@/components/Sidebar";
 import QuickContact from "@/components/QuickContact";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { Check, Phone, MessageSquare, MapPin } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -19,8 +21,15 @@ export async function generateMetadata({
   });
   if (service) {
     return {
-      title: `${service.name} - Demir Doğrama`,
+      title: `${service.name} | Başbuğa Metal Ankara`,
       description: service.description,
+      openGraph: {
+        title: `${service.name} | Başbuğa Metal Ankara`,
+        description: service.description,
+        url: `/${slug}`,
+        images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: service.name }],
+      },
+      alternates: { canonical: `/${slug}` },
     };
   }
 
@@ -30,8 +39,15 @@ export async function generateMetadata({
   });
   if (district) {
     return {
-      title: `${district.name} Demir Doğrama - Başbuğa Metal`,
-      description: `${district.name} bölgesinde demir doğrama ve ferforje hizmetleri.`,
+      title: `${district.name} Demir Doğrama | Başbuğa Metal`,
+      description: `${district.name} bölgesinde profesyonel demir doğrama ve ferforje hizmetleri.`,
+      openGraph: {
+        title: `${district.name} Demir Doğrama | Başbuğa Metal`,
+        description: `${district.name} bölgesinde profesyonel demir doğrama ve ferforje hizmetleri.`,
+        url: `/${slug}`,
+        images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: `${district.name} Demir Doğrama` }],
+      },
+      alternates: { canonical: `/${slug}` },
     };
   }
 
@@ -99,10 +115,13 @@ export default async function CatchAllSlugPage({
 
               {/* Image */}
               <div className="relative rounded-3xl overflow-hidden border border-slate-800 shadow-2xl aspect-[16/9] w-full bg-slate-900">
-                <img
+                <Image
                   src={service.imageUrl || "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80"}
                   alt={`${service.name} profesyonel uygulama hizmeti`}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 66vw"
+                  className="object-cover"
+                  priority
                 />
               </div>
 

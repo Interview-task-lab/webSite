@@ -6,7 +6,15 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Referanslarımız | Başbuğa Metal Ankara",
-  description: "Gamador İnşaat, Coffee Lab, TBR Lastik ve mimarlık / inşaat sektörünün öncü markalarına sunduğumuz çelik konstrüksiyon ve demir doğrama referanslarımız.",
+  description:
+    "Gamador İnşaat, Coffee Lab, TBR Lastik ve mimarlık / inşaat sektörünün öncü markalarına sunduğumuz çelik konstrüksiyon ve demir doğrama referanslarımız.",
+  openGraph: {
+    title: "Referanslarımız | Başbuğa Metal Ankara",
+    description: "Ankara'nın öncü markalarına sunduğumuz çelik konstrüksiyon ve demir doğrama referanslarımız.",
+    url: "/referanslar",
+    images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: "Başbuğa Metal Referanslar" }],
+  },
+  alternates: { canonical: "/referanslar" },
 };
 
 export default function ReferanslarPage() {

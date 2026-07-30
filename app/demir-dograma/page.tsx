@@ -4,8 +4,16 @@ import { Check, Star, ShieldCheck, HeartHandshake, Eye } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Demir Doğrama - Demir Doğrama",
-  description: "İstanbul Demir Doğrama ve Ferforje Çözümleri.",
+  title: "Ankara Demir Doğrama Ustası | Başbuğa Metal",
+  description:
+    "Ankara genelinde profesyonel demir doğrama ve ferforje çözümleri. Özel tasarım, kaliteli malzeme ve 5 yıl garanti.",
+  openGraph: {
+    title: "Ankara Demir Doğrama Ustası | Başbuğa Metal",
+    description: "Ankara genelinde profesyonel demir doğrama ve ferforje çözümleri.",
+    url: "/demir-dograma",
+    images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: "Başbuğa Metal Demir Doğrama" }],
+  },
+  alternates: { canonical: "/demir-dograma" },
 };
 
 export default function DemirDogramaPage() {

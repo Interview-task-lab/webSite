@@ -3,7 +3,15 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Hakkımızda | Başbuğa Metal Ankara",
-  description: "30 yılı aşkın mesleki birikim ve 15 yıllık Başbuğa Metal uzmanlığıyla çelik konstrüksiyon, asma kat, kapı ve korkuluk imalatı hikayemiz.",
+  description:
+    "30 yılı aşkın mesleki birikim ve 15 yıllık Başbuğa Metal uzmanlığıyla çelik konstrüksiyon, asma kat, kapı ve korkuluk imalatı hikayemiz.",
+  openGraph: {
+    title: "Hakkımızda | Başbuğa Metal Ankara",
+    description: "30 yılı aşkın mesleki birikim ve profesyonel çelik konstrüksiyon imalat hikayemiz.",
+    url: "/hakkimizda",
+    images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: "Başbuğa Metal Hakkımızda" }],
+  },
+  alternates: { canonical: "/hakkimizda" },
 };
 
 export default function AboutPage() {

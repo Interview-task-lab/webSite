@@ -20,8 +20,15 @@ export async function generateMetadata({
   if (!district) return { title: "Kategori Bulunamadı" };
 
   return {
-    title: `${district.name} Demir Doğramacı - Başbuğa Metal`,
+    title: `${district.name} Demir Doğramacı | Başbuğa Metal`,
     description: `${district.name} bölgesinde demir doğrama imalatı ve montaj hizmetleri.`,
+    openGraph: {
+      title: `${district.name} Demir Doğramacı | Başbuğa Metal`,
+      description: `${district.name} bölgesinde profesyonel demir doğrama imalatı ve montaj hizmetleri.`,
+      url: `/category/${slug}`,
+      images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: `${district.name} Demir Doğrama` }],
+    },
+    alternates: { canonical: `/category/${slug}` },
   };
 }
 
