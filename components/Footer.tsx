@@ -145,8 +145,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-teal-500 flex-shrink-0" />
-                <a href="mailto:info@basbugametal.com" className="hover:text-white transition-colors font-medium">
-                  info@basbugametal.com
+                <a href="mailto:basbugametal@gmail.com" className="hover:text-white transition-colors font-medium">
+                  basbugametal@gmail.com
                 </a>
               </li>
             </ul>

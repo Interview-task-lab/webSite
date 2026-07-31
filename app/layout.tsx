@@ -90,7 +90,7 @@ const localBusinessJsonLd = {
     "Ankara genelinde asma kat, ağır çelik, sürgülü bahçe kapısı, ferforje korkuluk, demir merdiven ve çelik konstrüksiyon imalatı.",
   url: SITE_URL,
   telephone: "+905079888206",
-  email: "info@basbugametal.com",
+  email: "basbugametal@gmail.com",
   image: `${SITE_URL}/images/logos/logo_dark.jpeg`,
   logo: `${SITE_URL}/images/logos/logo_dark.jpeg`,
   priceRange: "₺₺",
