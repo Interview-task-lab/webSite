@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { db } from "@/lib/db";
+import { getAllServices, getAllDistricts } from "@/lib/data";
 
 const SITE_URL = "https://basbugametal.com";
 
@@ -45,7 +45,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   // Dynamic service pages
-  const services = await db.service.findMany({ select: { slug: true } });
+  const services = getAllServices();
   const servicePages: MetadataRoute.Sitemap = services.map((service) => ({
     url: `${SITE_URL}/${service.slug}`,
     lastModified: new Date(),
@@ -54,7 +54,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // Dynamic district pages (bölgesel SEO)
-  const districts = await db.districtPage.findMany({ select: { slug: true } });
+  const districts = getAllDistricts();
   const districtPages: MetadataRoute.Sitemap = districts.map((district) => ({
     url: `${SITE_URL}/${district.slug}`,
     lastModified: new Date(),

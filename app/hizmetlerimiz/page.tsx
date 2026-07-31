@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { getAllServices } from "@/lib/data";
 import Sidebar from "@/components/Sidebar";
 import QuickContact from "@/components/QuickContact";
 import ServiceCard from "@/components/ServiceCard";
@@ -18,9 +18,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ServicesPage() {
-  const services = await db.service.findMany({
-    orderBy: { order: "asc" },
-  });
+  const services = getAllServices();
 
   return (
     <div className="bg-slate-950 min-h-screen text-slate-100">

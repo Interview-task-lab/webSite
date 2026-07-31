@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { getAllServices } from "@/lib/data";
 import { redirect } from "next/navigation";
 
 export default async function ServiceRedirectPage({
@@ -20,7 +20,7 @@ export default async function ServiceRedirectPage({
     redirect(`/hizmetler#${categoryMap[slug]}`);
   }
 
-  const allServices = await db.service.findMany();
+  const allServices = getAllServices();
   const subService = allServices.find((s: any) => s.slug === slug);
 
   if (subService && (subService as any).categorySlug) {

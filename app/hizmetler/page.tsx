@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { getAllServices } from "@/lib/data";
 import Link from "next/link";
 import { Layers, DoorOpen, Shield, Wrench, CheckCircle, ArrowRight, PhoneCall } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
@@ -19,9 +19,7 @@ export const metadata: Metadata = {
 };
 
 export default async function HizmetlerPage() {
-  const allServices = await db.service.findMany({
-    orderBy: { order: "asc" },
-  });
+  const allServices = getAllServices();
 
   // Service JSON-LD
   const serviceJsonLd = {

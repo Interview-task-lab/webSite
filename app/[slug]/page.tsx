@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { getServiceBySlug, getDistrictBySlug } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import QuickContact from "@/components/QuickContact";
@@ -16,9 +16,7 @@ export async function generateMetadata({
   const { slug } = await params;
 
   // 1. Try finding a Service
-  const service = await db.service.findUnique({
-    where: { slug },
-  });
+  const service = getServiceBySlug(slug);
   if (service) {
     return {
       title: `${service.name} | Başbuğa Metal Ankara`,
@@ -34,9 +32,7 @@ export async function generateMetadata({
   }
 
   // 2. Try finding a District Page
-  const district = await db.districtPage.findUnique({
-    where: { slug },
-  });
+  const district = getDistrictBySlug(slug);
   if (district) {
     return {
       title: `${district.name} Demir Doğrama | Başbuğa Metal`,
@@ -65,9 +61,7 @@ export default async function CatchAllSlugPage({
   const phoneTel = process.env.NEXT_PUBLIC_PHONE_TEL || "+905525042657";
 
   // Check 1: Is it a Service?
-  const service = await db.service.findUnique({
-    where: { slug },
-  });
+  const service = getServiceBySlug(slug);
 
   if (service) {
     const features: string[] = JSON.parse(service.featuresJson || "[]");
@@ -199,9 +193,7 @@ export default async function CatchAllSlugPage({
   }
 
   // Check 2: Is it a District Page?
-  const district = await db.districtPage.findUnique({
-    where: { slug },
-  });
+  const district = getDistrictBySlug(slug);
 
   if (district) {
     const waUrl = buildWhatsAppUrl({
