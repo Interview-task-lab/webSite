@@ -78,7 +78,7 @@ export const metadata: Metadata = {
   // Google Search Console verification meta tag
   // ⚠️ Gerçek verification code'u Google Search Console'dan alınıp buraya girilmeli
   verification: {
-    google: "GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE",
+    google: "google8b7ef03f84da82cf",
   },
 };
 
