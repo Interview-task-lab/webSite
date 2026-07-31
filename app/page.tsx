@@ -1,7 +1,9 @@
 import { SidebarDistrictsWidget } from "@/components/Sidebar";
 import { QuickContactCard } from "@/components/QuickContact";
 import WorkGallery from "@/components/WorkGallery";
+import AccordionFAQ from "@/components/AccordionFAQ";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { getAllFAQs } from "@/lib/data";
 import { CheckCircle2, Zap, Hammer, ShieldCheck, Award, Phone, Layers, DoorOpen, Shield, Wrench, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -50,6 +52,21 @@ const websiteJsonLd = {
 export default async function HomePage() {
   const waPhone = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "905079888206";
   const heroWaUrl = `https://wa.me/${waPhone}`;
+  const faqs = getAllFAQs();
+
+  // FAQPage JSON-LD for Google rich snippets
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   const categories = [
     {
@@ -123,6 +140,10 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
 
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 border-b border-slate-900 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/80 via-slate-950 to-slate-950">
@@ -166,7 +187,7 @@ export default async function HomePage() {
                 <a
                   href={heroWaUrl}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 hover:border-slate-700 px-8 py-4 rounded-xl font-bold text-base hover:-translate-y-0.5 transition-all duration-200"
                 >
                   WhatsApp'tan Yaz
@@ -264,6 +285,19 @@ export default async function HomePage() {
 
       {/* Work Gallery Photo Slider */}
       <WorkGallery />
+
+      {/* FAQ Section */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="text-center mb-10">
+          <span className="text-xs font-bold text-amber-500 uppercase tracking-widest">
+            Sıkça Sorulan Sorular
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-2">
+            Merak Edilenler
+          </h2>
+        </div>
+        <AccordionFAQ faqs={faqs} />
+      </section>
 
       {/* Quick Contact & Regional Service Areas Side-by-Side Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">

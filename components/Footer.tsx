@@ -30,7 +30,7 @@ export default function Footer() {
                 <a
                   href={footerWhatsAppUrl}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center transition-colors group"
                 >
                   <MessageCircle className="w-4 h-4 mr-2 text-emerald-400 group-hover:scale-110 transition-transform" />
@@ -121,7 +121,7 @@ export default function Footer() {
                 <a
                   href={googleMapsUrl}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="flex items-start space-x-3 text-amber-400 hover:text-amber-300 transition-colors group"
                   title="Haritalarda Aç"
                 >

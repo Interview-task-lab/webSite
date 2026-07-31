@@ -1,6 +1,7 @@
 import Sidebar from "@/components/Sidebar";
 import QuickContact from "@/components/QuickContact";
 import { Check, Star, ShieldCheck, HeartHandshake, Eye } from "lucide-react";
+import Breadcrumb from "@/components/Breadcrumb";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function DemirDogramaPage() {
     },
     {
       title: "Keşif",
-      description: "İstanbul genelinde talebiniz üzerine adresinize gelerek tamamen ücretsiz ölçü alıp, en uygun tasarım modelini belirliyoruz.",
+      description: "Ankara genelinde talebiniz üzerine adresinize gelerek tamamen ücretsiz ölçü alıp, en uygun tasarım modelini belirliyoruz.",
       icon: <Eye className="w-5 h-5 text-teal-500" />
     },
     {
@@ -51,9 +52,10 @@ export default function DemirDogramaPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Main Area */}
           <div className="lg:col-span-2 space-y-12">
+            <Breadcrumb items={[{ label: "Demir Doğrama" }]} />
             <div className="space-y-4">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
-                İstanbul Demir Doğrama ve Ferforje Çözümleri
+                Ankara Demir Doğrama ve Ferforje Çözümleri
               </h1>
               <p className="text-slate-400 text-lg leading-relaxed">
                 Başbuğa Metal bünyesinde ferforje bahçe kapısı, yangın merdiveni, korkuluk imalatı ve çelik asma kat montajı gibi geniş bir hizmet yelpazesi sunuyoruz.

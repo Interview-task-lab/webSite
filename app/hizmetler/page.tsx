@@ -2,6 +2,7 @@ import { getAllServices } from "@/lib/data";
 import Link from "next/link";
 import { Layers, DoorOpen, Shield, Wrench, CheckCircle, ArrowRight, PhoneCall } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import Breadcrumb from "@/components/Breadcrumb";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -88,6 +89,23 @@ export default async function HizmetlerPage() {
       />
       {/* Main Categories & Services Sections */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+        <Breadcrumb items={[{ label: "Hizmetlerimiz" }]} />
+        {/* Page Header with h1 */}
+        <div className="text-center space-y-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-bold uppercase tracking-wider">
+            15 Farklı İmalat Alanı
+          </span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white">
+            Ankara Demir Doğrama &amp; Çelik Yapı{" "}
+            <span className="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-200 bg-clip-text text-transparent">
+              Hizmetlerimiz
+            </span>
+          </h1>
+          <p className="text-slate-400 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">
+            Asma kat, ağır çelik, otomatik sürgülü kapı, bahçe ve pencere korkuluğu, prefabrik karkas ve özel metal imalat alanlarında profesyonel hizmet sunuyoruz.
+          </p>
+        </div>
+
         {categories.map((cat) => {
           const Icon = cat.icon;
           return (
@@ -148,7 +166,7 @@ export default async function HizmetlerPage() {
                             service.waMessage || `${service.name} hakkında teklif almak istiyorum.`
                           )}`}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="noopener noreferrer nofollow"
                           className="bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-sm"
                         >
                           WhatsApp Teklif Al

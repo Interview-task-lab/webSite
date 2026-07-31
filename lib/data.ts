@@ -342,35 +342,7 @@ export const FAQS: FAQItem[] = [
   }
 ];
 
-export const BLOG_POSTS: BlogPostItem[] = [
-  {
-    id: "blog-1",
-    title: "Asma Kat Yapımında Dikkat Edilmesi Gereken Statik Kurallar",
-    slug: "asma-kat-yapimi-statik-kurallar",
-    summary: "İş yeri ve depolarda asma kat yaptırırken profil seçimi, yük hesabı ve dikkat edilmesi gerekenler.",
-    content: "Asma kat yapımı, yüksek tavanlı iş yerlerinde alan kullanımını iki katına çıkaran en pratik çelik konstrüksiyon uygulamasıdır. Asma kat yaptırırken IPE veya NPI ağır profil seçimi, metrekareye düşen yük kapasitesi, ana kolon bağlantıları ve yangın merdiveni erişimi hayati önem taşır. Profesyonel ekibimiz statik hesaplamaları yaparak en güvenli asma kat sistemini inşa etmektedir.",
-    tagsJson: JSON.stringify(["asma kat", "çelik yapı", "ağır çelik"]),
-    createdAt: "2026-02-10T10:00:00Z"
-  },
-  {
-    id: "blog-2",
-    title: "Demir Doğrama ve Ferforje Fiyatları 2026 Rehberi",
-    slug: "demir-dograma-fiyatlari-2026",
-    summary: "2026 yılı güncel bahçe kapısı, pencere korkuluğu, çelik merdiven ve profil kesim fiyatları.",
-    content: "2026 yılı itibarıyla demir doğrama fiyatları kullanılacak et kalınlığı, işçilik detayları ve alanın metrajına göre değişmektedir. Kaliteli bir demir doğrama uygulamasında pas önleyici astar boya, kaliteli kilit sistemleri ve epoksi ankraj montajı uzun ömürlü kullanım sağlar.",
-    tagsJson: JSON.stringify(["demir doğrama fiyatları", "bahçe kapısı", "korkuluk fiyatları"]),
-    createdAt: "2026-03-15T12:00:00Z"
-  },
-  {
-    id: "blog-3",
-    title: "Otomatik Sürgülü Bahçe Kapısı Seçim Rehberi",
-    slug: "surgulu-bahce-kapisi-secim-rehberi",
-    summary: "Site ve müstakil evler için yana kayar otomatik sürgülü kapı otomasyonu nasıl seçilir?",
-    content: "Sürgülü bahçe kapıları hem estetik hem de yüksek güvenlik sunar. Kapının ağırlığına göre doğru motor (BFT/Nice), zemin rayının düzgünlüğü ve emniyet fotoseli kurulumu uzun yıllar sorunsuz kullanımın anahtarıdır.",
-    tagsJson: JSON.stringify(["sürgülü kapı", "otomatik kapı", "site giriş kapısı"]),
-    createdAt: "2026-04-01T14:30:00Z"
-  }
-];
+export const BLOG_POSTS: BlogPostItem[] = [];
 
 export const DISTRICTS: DistrictItem[] = [
   {
@@ -445,29 +417,7 @@ export const DISTRICTS: DistrictItem[] = [
   }
 ];
 
-export const GUIDES: GuideItem[] = [
-  {
-    id: "gd-1",
-    title: "Asma Kat Yaptırırken Nelere Dikkat Edilmeli?",
-    description: "Taşıyıcı profil hesabı, zemin kaplama alternatifleri ve statik güvenlik rehberi.",
-    imageUrl: "/images/guide-asma-kat.jpg",
-    targetServiceSlug: "asma-kat"
-  },
-  {
-    id: "gd-2",
-    title: "Pencere ve Bahçe Korkuluklarında Güvenlik Standartları",
-    description: "Çocuk emniyeti, epoksi dübel montajı ve paslanmaz boya kaplama rehberi.",
-    imageUrl: "/images/guide-korkuluk.jpg",
-    targetServiceSlug: "bahce-korkuluk-yapimi"
-  },
-  {
-    id: "gd-3",
-    title: "Otomatik Sürgülü Kapı Motoru Seçimi",
-    description: "Kapı ağırlığına göre motor gücü, emniyet fotoselleri ve uzaktan kumanda ayarları.",
-    imageUrl: "/images/guide-kapi.jpg",
-    targetServiceSlug: "surgulu-kapi-yapimi"
-  }
-];
+export const GUIDES: GuideItem[] = [];
 
 // Data Accessor Utility Functions
 export function getAllServices() {
