@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 // ⚠️ SITE_URL: Alan adı alındığında burayı güncelleyin
-const SITE_URL = "https://basbugametal.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

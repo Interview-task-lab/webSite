@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllServices, getAllDistricts } from "@/lib/data";
 
-const SITE_URL = "https://basbugametal.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages

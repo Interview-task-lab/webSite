@@ -10,7 +10,7 @@ import type { Metadata } from "next";
 export const revalidate = 3600;
 
 // ⚠️ SITE_URL: Alan adı alındığında burayı güncelleyin
-const SITE_URL = "https://basbugametal.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com";
 
 export const metadata: Metadata = {
   title: "Başbuğa Metal - Ankara Demir Doğrama & Çelik Yapı İmalatı",
