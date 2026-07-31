@@ -9,11 +9,7 @@ export default function Footer() {
 
   const googleMapsUrl = "https://maps.google.com/?q=Önder+Mahallesi+Çamlıtepe+Caddesi+64/1+Altındağ+Ankara";
 
-  const footerWhatsAppUrl = buildWhatsAppUrl({
-    kaynak: "Footer Hizli Teklif Alani",
-    hizmet: "Genel Teklif",
-    detay: "Footer üzerinden hızlı fiyat ve keşif talebi göndermek istiyorum."
-  });
+  const footerWhatsAppUrl = buildWhatsAppUrl();
 
   return (
     <footer className="bg-slate-950 text-slate-400 border-t border-slate-900 mt-auto">
