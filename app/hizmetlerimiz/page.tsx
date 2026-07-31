@@ -1,18 +1,24 @@
-import { db } from "@/lib/db";
+import { getAllServices } from "@/lib/data";
 import Sidebar from "@/components/Sidebar";
 import QuickContact from "@/components/QuickContact";
 import ServiceCard from "@/components/ServiceCard";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "HİZMETLERİMİZ - Demir Doğrama",
-  description: "Bina kapısı, otomatik bahçe kapısı, ferforje korkuluk, çelik çatı ve asma kat hizmet listemiz.",
+  title: "Hizmetlerimiz | Başbuğa Metal Ankara",
+  description:
+    "Bina kapısı, otomatik bahçe kapısı, ferforje korkuluk, çelik çatı ve asma kat hizmet listemiz.",
+  openGraph: {
+    title: "Hizmetlerimiz | Başbuğa Metal Ankara",
+    description: "Bina kapısı, otomatik bahçe kapısı, ferforje korkuluk, çelik çatı ve asma kat hizmetleri.",
+    url: "/hizmetlerimiz",
+    images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: "Başbuğa Metal Hizmetlerimiz" }],
+  },
+  alternates: { canonical: "/hizmetlerimiz" },
 };
 
 export default async function ServicesPage() {
-  const services = await db.service.findMany({
-    orderBy: { order: "asc" },
-  });
+  const services = getAllServices();
 
   return (
     <div className="bg-slate-950 min-h-screen text-slate-100">

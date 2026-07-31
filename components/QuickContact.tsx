@@ -4,11 +4,7 @@ import { MessageCircle, FileText, PhoneCall, Sparkles } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function QuickContactCard({ className = "" }: { className?: string }) {
-  const whatsappUrl = buildWhatsAppUrl({
-    kaynak: "Hizli Iletisim Banneri",
-    hizmet: "Genel Teklif",
-    detay: "Projem hakkında hızlı fiyat ve bilgi almak istiyorum."
-  });
+  const whatsappUrl = buildWhatsAppUrl();
 
   const phoneTel = process.env.NEXT_PUBLIC_PHONE_TEL || "+905079888206";
 

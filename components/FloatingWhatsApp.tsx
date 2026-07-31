@@ -4,11 +4,7 @@ import { MessageCircle } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function FloatingWhatsApp() {
-  const url = buildWhatsAppUrl({
-    kaynak: "Floating CTA",
-    hizmet: "Genel Bilgi",
-    detay: "Fiyatlar ve ücretsiz keşif hakkında bilgi almak istiyorum."
-  });
+  const url = buildWhatsAppUrl();
 
   return (
     <a

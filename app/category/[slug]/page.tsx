@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { getDistrictByCategorySlug } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import QuickContact from "@/components/QuickContact";
@@ -12,16 +12,21 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  
-  const district = await db.districtPage.findFirst({
-    where: { categorySlug: slug },
-  });
+
+  const district = getDistrictByCategorySlug(slug);
 
   if (!district) return { title: "Kategori Bulunamadı" };
 
   return {
-    title: `${district.name} Demir Doğramacı - Başbuğa Metal`,
+    title: `${district.name} Demir Doğramacı | Başbuğa Metal`,
     description: `${district.name} bölgesinde demir doğrama imalatı ve montaj hizmetleri.`,
+    openGraph: {
+      title: `${district.name} Demir Doğramacı | Başbuğa Metal`,
+      description: `${district.name} bölgesinde profesyonel demir doğrama imalatı ve montaj hizmetleri.`,
+      url: `/category/${slug}`,
+      images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: `${district.name} Demir Doğrama` }],
+    },
+    alternates: { canonical: `/category/${slug}` },
   };
 }
 
@@ -31,10 +36,8 @@ export default async function DistrictCategoryPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  
-  const district = await db.districtPage.findFirst({
-    where: { categorySlug: slug },
-  });
+
+  const district = getDistrictByCategorySlug(slug);
 
   if (!district) {
     notFound();
@@ -70,7 +73,7 @@ export default async function DistrictCategoryPage({
             <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed text-base space-y-6">
               <p>{district.content}</p>
               <p>
-                İstanbul'un her bölgesinde olduğu gibi, <strong>{district.name}</strong> ilçesinde de profesyonel demirci ustası ve montaj kadromuzla yanınızdayız. Bina kapıları, bahçe kapıları, dekoratif korkuluk sistemleri, asma kat ve çelik konstrüksiyon çatı işlerinizi yüksek kalite güvencesiyle tamamlıyoruz.
+                Ankara'nın her bölgesinde olduğu gibi, <strong>{district.name}</strong> ilçesinde de profesyonel demirci ustası ve montaj kadromuzla yanınızdayız. Bina kapıları, bahçe kapıları, dekoratif korkuluk sistemleri, asma kat ve çelik konstrüksiyon çatı işlerinizi yüksek kalite güvencesiyle tamamlıyoruz.
               </p>
             </div>
 

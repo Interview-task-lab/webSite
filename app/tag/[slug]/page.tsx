@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { getAllBlogPosts } from "@/lib/data";
 import Sidebar from "@/components/Sidebar";
 import QuickContact from "@/components/QuickContact";
 import Link from "next/link";
@@ -13,8 +13,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const tagDisplay = slug.replace(/-/g, " ");
   return {
-    title: `Etiket: ${tagDisplay} - Başbuğa Metal`,
+    title: `Etiket: ${tagDisplay} | Başbuğa Metal`,
     description: `${tagDisplay} etiketli güncel blog rehberleri.`,
+    openGraph: {
+      title: `Etiket: ${tagDisplay} | Başbuğa Metal`,
+      description: `${tagDisplay} etiketli güncel blog rehberleri.`,
+      url: `/tag/${slug}`,
+    },
+    alternates: { canonical: `/tag/${slug}` },
   };
 }
 
@@ -26,9 +32,7 @@ export default async function TagPage({
   const { slug } = await params;
 
   // Query blog posts containing the matching tag
-  const allPosts = await db.blogPost.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  const allPosts = getAllBlogPosts();
 
   // Filter posts on the server-side logic
   const filteredPosts = allPosts.filter((post) => {
@@ -67,7 +71,6 @@ export default async function TagPage({
             ) : (
               <div className="space-y-8">
                 {filteredPosts.map((post) => {
-                  const tags: string[] = JSON.parse(post.tagsJson || "[]");
                   return (
                     <article
                       key={post.id}

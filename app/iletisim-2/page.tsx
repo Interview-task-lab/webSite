@@ -5,7 +5,35 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "İletişim & Ücretsiz Keşif | Başbuğa Metal Ankara",
-  description: "Başbuğa Metal Ankara Altındağ adres bilgileri, telefon ve ücretsiz keşif başvuru formu.",
+  description:
+    "Başbuğa Metal Ankara Altındağ adres bilgileri, telefon ve ücretsiz keşif başvuru formu.",
+  openGraph: {
+    title: "İletişim & Ücretsiz Keşif | Başbuğa Metal Ankara",
+    description: "Ankara Altındağ'da ücretsiz keşif ve fiyat teklifi için bize ulaşın.",
+    url: "/iletisim-2",
+    images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: "Başbuğa Metal İletişim" }],
+  },
+  alternates: { canonical: "/iletisim-2" },
+};
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Başbuğa Metal İletişim",
+  description: "Başbuğa Metal iletişim bilgileri ve ücretsiz keşif başvuru formu.",
+  mainEntity: {
+    "@type": "LocalBusiness",
+    name: "Başbuğa Metal",
+    telephone: "+905079888206",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Önder Mahallesi Çamlıtepe Caddesi 64/1",
+      addressLocality: "Altındağ",
+      addressRegion: "Ankara",
+      postalCode: "06000",
+      addressCountry: "TR",
+    },
+  },
 };
 
 export default async function ContactPage() {
@@ -31,6 +59,10 @@ export default async function ContactPage() {
 
   return (
     <div className="bg-slate-950 min-h-screen text-slate-100 pb-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 space-y-8">
 
         {/* ---------------- MOBILE LAYOUT (flex-col) ---------------- */}

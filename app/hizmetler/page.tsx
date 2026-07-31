@@ -1,17 +1,46 @@
-import { db } from "@/lib/db";
+import { getAllServices } from "@/lib/data";
 import Link from "next/link";
 import { Layers, DoorOpen, Shield, Wrench, CheckCircle, ArrowRight, PhoneCall } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Hizmetlerimiz | Başbuğa Metal Demircilik ve Çelik Yapı",
-  description: "Asma kat, ağır çelik, otomatik sürgülü kapı, bahçe/pencere korkuluğu, prefabrik karkas ve özel metal imalat hizmetlerimizi inceleyin.",
+export const metadata: Metadata = {
+  title: "Hizmetlerimiz | Başbuğa Metal Ankara",
+  description:
+    "Asma kat, ağır çelik, otomatik sürgülü kapı, bahçe/pencere korkuluğu, prefabrik karkas ve özel metal imalat hizmetlerimizi inceleyin.",
+  openGraph: {
+    title: "Hizmetlerimiz | Başbuğa Metal Ankara",
+    description:
+      "15 farklı imalat alanında profesyonel demir doğrama ve çelik yapı hizmetleri.",
+    url: "/hizmetler",
+    images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: "Başbuğa Metal Hizmetler" }],
+  },
+  alternates: { canonical: "/hizmetler" },
 };
 
 export default async function HizmetlerPage() {
-  const allServices = await db.service.findMany({
-    orderBy: { order: "asc" },
-  });
+  const allServices = getAllServices();
+
+  // Service JSON-LD
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Başbuğa Metal Hizmetleri",
+    itemListElement: allServices.map((service: any, index: number) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Service",
+        name: service.name,
+        description: service.description,
+        provider: {
+          "@type": "LocalBusiness",
+          name: "Başbuğa Metal",
+        },
+        areaServed: { "@type": "City", name: "Ankara" },
+      },
+    })),
+  };
 
   const categories = [
     {
@@ -53,6 +82,10 @@ export default async function HizmetlerPage() {
 
   return (
     <div className="bg-slate-950 text-slate-100 min-h-screen pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Main Categories & Services Sections */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
         {categories.map((cat) => {

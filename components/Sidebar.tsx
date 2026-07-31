@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { getAllDistricts } from "@/lib/data";
 import { MapPin, Phone, Wrench } from "lucide-react";
 
 export function SidebarCallWidget() {
@@ -30,13 +30,7 @@ export function SidebarCallWidget() {
 }
 
 export async function SidebarDistrictsWidget() {
-  const districts = await db.districtPage.findMany({
-    select: {
-      name: true,
-      slug: true,
-    },
-    orderBy: { name: "asc" },
-  });
+  const districts = getAllDistricts();
 
   return (
     <div className="bg-slate-900/50 border border-slate-800 rounded-3xl p-6 sm:p-7 shadow-lg">
