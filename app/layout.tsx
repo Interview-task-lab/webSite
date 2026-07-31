@@ -28,18 +28,6 @@ export const metadata: Metadata = {
   },
   description:
     "Ankara genelinde asma kat, ağır çelik, sürgülü bahçe kapısı, ferforje korkuluk, demir merdiven ve çelik konstrüksiyon imalatı. 5 yıl garanti.",
-  keywords: [
-    "demir doğrama ankara",
-    "çelik yapı ankara",
-    "asma kat yapımı",
-    "sürgülü kapı",
-    "ferforje korkuluk",
-    "çelik konstrüksiyon",
-    "demir merdiven",
-    "bahçe kapısı",
-    "başbuğa metal",
-    "ankara demirci",
-  ],
   authors: [{ name: "Başbuğa Metal" }],
   creator: "Başbuğa Metal",
   publisher: "Başbuğa Metal",

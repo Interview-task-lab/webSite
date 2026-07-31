@@ -35,7 +35,7 @@ export function QuickContactCard({ className = "" }: { className?: string }) {
           <a
             href={whatsappUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer nofollow"
             className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-md shadow-emerald-950/30 hover:-translate-y-0.5"
           >
             <MessageCircle className="w-4 h-4 fill-current" />

@@ -1,4 +1,5 @@
 import { Award, ShieldCheck, History, Hammer, CheckCircle2, Layers, DoorOpen, Shield, Wrench } from "lucide-react";
+import Breadcrumb from "@/components/Breadcrumb";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -60,6 +61,7 @@ export default function AboutPage() {
   return (
     <div className="bg-slate-950 min-h-screen text-slate-100 pb-16">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 space-y-12">
+        <Breadcrumb items={[{ label: "Hakkımızda" }]} />
         {/* Header / Hero */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-bold uppercase tracking-wider">

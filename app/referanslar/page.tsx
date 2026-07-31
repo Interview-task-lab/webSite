@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import QuickContact from "@/components/QuickContact";
 import { Building2, CheckCircle2, Star, Sparkles, Award } from "lucide-react";
+import Breadcrumb from "@/components/Breadcrumb";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -51,6 +52,7 @@ export default function ReferanslarPage() {
   return (
     <div className="bg-slate-950 text-slate-100 min-h-screen pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 space-y-10">
+        <Breadcrumb items={[{ label: "Referanslarımız" }]} />
         
         {/* Contained Hero Header */}
         <div className="text-center space-y-3">

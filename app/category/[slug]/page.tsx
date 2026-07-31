@@ -82,7 +82,7 @@ export default async function DistrictCategoryPage({
               <a
                 href={waUrl}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#20ba56] text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-200"
               >
                 <MessageSquare className="w-5 h-5 fill-white text-[#25D366]" />

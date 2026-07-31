@@ -1,5 +1,6 @@
 import ContactForm from "@/components/ContactForm";
 import { SidebarCallWidget, SidebarDistrictsWidget } from "@/components/Sidebar";
+import Breadcrumb from "@/components/Breadcrumb";
 import { MapPin } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -10,10 +11,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "İletişim & Ücretsiz Keşif | Başbuğa Metal Ankara",
     description: "Ankara Altındağ'da ücretsiz keşif ve fiyat teklifi için bize ulaşın.",
-    url: "/iletisim-2",
+    url: "/iletisim",
     images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: "Başbuğa Metal İletişim" }],
   },
-  alternates: { canonical: "/iletisim-2" },
+  alternates: { canonical: "/iletisim" },
 };
 
 const contactJsonLd = {
@@ -48,7 +49,7 @@ export default async function ContactPage() {
       <a
         href={googleMapsUrl}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         className="text-sm text-amber-400 hover:text-amber-300 font-semibold underline underline-offset-4 leading-relaxed transition-colors flex-1"
         title="Haritalarda Aç"
       >
@@ -64,6 +65,7 @@ export default async function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 space-y-8">
+        <Breadcrumb items={[{ label: "İletişim & Ücretsiz Keşif" }]} />
 
         {/* ---------------- MOBILE LAYOUT (flex-col) ---------------- */}
         <div className="flex flex-col space-y-6 lg:hidden">

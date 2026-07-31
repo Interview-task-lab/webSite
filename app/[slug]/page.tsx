@@ -1,9 +1,10 @@
-import { getServiceBySlug, getDistrictBySlug } from "@/lib/data";
+import { getServiceBySlug, getDistrictBySlug, getServicesByCategory } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import QuickContact from "@/components/QuickContact";
+import Breadcrumb from "@/components/Breadcrumb";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
-import { Check, Phone, MessageSquare, MapPin } from "lucide-react";
+import { Check, Phone, MessageSquare, MapPin, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -66,12 +67,41 @@ export default async function CatchAllSlugPage({
   if (service) {
     const features: string[] = JSON.parse(service.featuresJson || "[]");
     
+    // Related services from the same category
+    const relatedServices = getServicesByCategory(service.categorySlug)
+      .filter((s) => s.slug !== service.slug)
+      .slice(0, 3);
+    
     // Build context-specific WhatsApp link
     const waUrl = buildWhatsAppUrl({
       kaynak: `Hizmet Detay: ${service.name}`,
       hizmet: service.name,
       detay: service.waMessage,
     });
+
+    // Service JSON-LD for individual service page
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com";
+    const serviceJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: service.name,
+      description: service.description,
+      url: `${siteUrl}/${service.slug}`,
+      image: service.imageUrl ? `${siteUrl}${service.imageUrl}` : undefined,
+      provider: {
+        "@type": "LocalBusiness",
+        name: "Başbuğa Metal",
+        telephone: "+905079888206",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Önder Mahallesi Çamlıtepe Caddesi 64/1",
+          addressLocality: "Altındağ",
+          addressRegion: "Ankara",
+          addressCountry: "TR",
+        },
+      },
+      areaServed: { "@type": "City", name: "Ankara" },
+    };
 
     // Special multiple WhatsApp CTA buttons for Ferforje Korkuluk
     const isKorkuluk = slug === "ferfoje-korkuluk";
@@ -99,10 +129,18 @@ export default async function CatchAllSlugPage({
 
     return (
       <div className="bg-slate-950 min-h-screen text-slate-100">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+        />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Area */}
             <div className="lg:col-span-2 space-y-8">
+              <Breadcrumb items={[
+                { label: "Hizmetlerimiz", href: "/hizmetler" },
+                { label: service.name },
+              ]} />
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
                 {service.name}
               </h1>
@@ -143,7 +181,7 @@ export default async function CatchAllSlugPage({
                   <a
                     href={waUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer nofollow"
                     className="flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#20ba56] text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-200"
                   >
                     <MessageSquare className="w-5 h-5 fill-white text-[#25D366]" />
@@ -169,12 +207,39 @@ export default async function CatchAllSlugPage({
                         key={idx}
                         href={cta.url}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener noreferrer nofollow"
                         className="flex items-center justify-between bg-slate-900/60 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 px-6 py-4 rounded-xl font-semibold text-slate-200 transition-all"
                       >
                         <span>{cta.label}</span>
                         <MessageSquare className="w-5 h-5 text-[#25D366] fill-[#25D366]" />
                       </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Related Services */}
+              {relatedServices.length > 0 && (
+                <div className="pt-8 border-t border-slate-900 space-y-4">
+                  <h3 className="text-xl font-extrabold text-white">İlgili Hizmetlerimiz</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {relatedServices.map((rs) => (
+                      <Link
+                        key={rs.slug}
+                        href={`/${rs.slug}`}
+                        className="bg-slate-900/60 border border-slate-800 hover:border-amber-500/40 p-4 rounded-xl transition-all group"
+                      >
+                        <h4 className="text-sm font-bold text-white group-hover:text-amber-400 transition-colors mb-1">
+                          {rs.name}
+                        </h4>
+                        <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+                          {rs.description}
+                        </p>
+                        <div className="flex items-center text-xs text-amber-400 font-bold mt-3">
+                          <span>Detay</span>
+                          <ArrowRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -209,6 +274,9 @@ export default async function CatchAllSlugPage({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Area */}
             <div className="lg:col-span-2 space-y-8">
+              <Breadcrumb items={[
+                { label: district.name },
+              ]} />
               <div className="inline-flex items-center space-x-2 bg-teal-600/10 border border-teal-500/20 px-4 py-2 rounded-full">
                 <MapPin className="w-4 h-4 text-teal-500" />
                 <span className="text-xs font-semibold text-teal-400 tracking-wider uppercase">
@@ -232,7 +300,7 @@ export default async function CatchAllSlugPage({
                 <a
                   href={waUrl}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#20ba56] text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-200"
                 >
                   <MessageSquare className="w-5 h-5 fill-white text-[#25D366]" />
