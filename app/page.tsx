@@ -46,6 +46,7 @@ const websiteJsonLd = {
       streetAddress: "Önder Mahallesi Çamlıtepe Caddesi 64/1",
       addressLocality: "Altındağ",
       addressRegion: "Ankara",
+      postalCode: "06000",
       addressCountry: "TR",
     },
   },
