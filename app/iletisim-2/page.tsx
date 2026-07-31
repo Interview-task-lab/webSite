@@ -25,13 +25,16 @@ const contactJsonLd = {
   mainEntity: {
     "@type": "LocalBusiness",
     name: "Başbuğa Metal",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com",
+    image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com"}/images/logos/logo_dark.jpeg`,
+    logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com"}/images/logos/logo_dark.jpeg`,
     telephone: "+905079888206",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Önder Mahallesi Çamlıtepe Caddesi 64/1",
       addressLocality: "Altındağ",
       addressRegion: "Ankara",
-      postalCode: "06000",
+      postalCode: "06165",
       addressCountry: "TR",
     },
   },
