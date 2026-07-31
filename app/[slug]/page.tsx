@@ -91,6 +91,9 @@ export default async function CatchAllSlugPage({
       provider: {
         "@type": "LocalBusiness",
         name: "Başbuğa Metal",
+        url: siteUrl,
+        image: `${siteUrl}/images/logos/logo_dark.jpeg`,
+        logo: `${siteUrl}/images/logos/logo_dark.jpeg`,
         telephone: "+905079888206",
         address: {
           "@type": "PostalAddress",

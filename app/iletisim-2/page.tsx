@@ -25,6 +25,9 @@ const contactJsonLd = {
   mainEntity: {
     "@type": "LocalBusiness",
     name: "Başbuğa Metal",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com",
+    image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com"}/images/logos/logo_dark.jpeg`,
+    logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com"}/images/logos/logo_dark.jpeg`,
     telephone: "+905079888206",
     address: {
       "@type": "PostalAddress",

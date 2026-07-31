@@ -37,6 +37,8 @@ export default async function HizmetlerPage() {
         provider: {
           "@type": "LocalBusiness",
           name: "Başbuğa Metal",
+          url: process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com",
+          image: `${process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com"}/images/logos/logo_dark.jpeg`,
         },
         areaServed: { "@type": "City", name: "Ankara" },
       },

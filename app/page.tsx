@@ -37,6 +37,8 @@ const websiteJsonLd = {
   publisher: {
     "@type": "Organization",
     name: "Başbuğa Metal",
+    url: SITE_URL,
+    image: `${SITE_URL}/images/logos/logo_dark.jpeg`,
     logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logos/logo_dark.jpeg` },
     telephone: "+905079888206",
     address: {
