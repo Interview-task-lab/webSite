@@ -1,10 +1,10 @@
-import { getServiceBySlug, getDistrictBySlug, getServicesByCategory } from "@/lib/data";
+import { getServiceBySlug, getServicesByCategory } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import QuickContact from "@/components/QuickContact";
 import Breadcrumb from "@/components/Breadcrumb";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
-import { Check, Phone, MessageSquare, MapPin, ArrowRight } from "lucide-react";
+import { Check, Phone, MessageSquare, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -27,22 +27,6 @@ export async function generateMetadata({
         description: service.description,
         url: `/${slug}`,
         images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: service.name }],
-      },
-      alternates: { canonical: `/${slug}` },
-    };
-  }
-
-  // 2. Try finding a District Page
-  const district = getDistrictBySlug(slug);
-  if (district) {
-    return {
-      title: `${district.name} Demir Doğrama | Başbuğa Metal`,
-      description: `${district.name} bölgesinde profesyonel demir doğrama ve ferforje hizmetleri.`,
-      openGraph: {
-        title: `${district.name} Demir Doğrama | Başbuğa Metal`,
-        description: `${district.name} bölgesinde profesyonel demir doğrama ve ferforje hizmetleri.`,
-        url: `/${slug}`,
-        images: [{ url: "/images/logos/logo_dark.jpeg", width: 800, height: 600, alt: `${district.name} Demir Doğrama` }],
       },
       alternates: { canonical: `/${slug}` },
     };
@@ -248,76 +232,6 @@ export default async function CatchAllSlugPage({
                   </div>
                 </div>
               )}
-            </div>
-
-            {/* Sidebar */}
-            <div className="lg:col-span-1">
-              <Sidebar />
-            </div>
-          </div>
-        </div>
-        <QuickContact />
-      </div>
-    );
-  }
-
-  // Check 2: Is it a District Page?
-  const district = getDistrictBySlug(slug);
-
-  if (district) {
-    const waUrl = buildWhatsAppUrl({
-      kaynak: `Bölgesel Sayfa: ${district.name}`,
-      hizmet: "Demir Doğrama",
-      ilce: district.name,
-      detay: `${district.name} bölgesinde demir doğrama ve ferforje işleri için keşif talep ediyorum.`,
-    });
-
-    return (
-      <div className="bg-slate-950 min-h-screen text-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Main Area */}
-            <div className="lg:col-span-2 space-y-8">
-              <Breadcrumb items={[
-                { label: district.name },
-              ]} />
-              <div className="inline-flex items-center space-x-2 bg-teal-600/10 border border-teal-500/20 px-4 py-2 rounded-full">
-                <MapPin className="w-4 h-4 text-teal-500" />
-                <span className="text-xs font-semibold text-teal-400 tracking-wider uppercase">
-                  Bölgesel Hizmetler • {district.name}
-                </span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
-                {district.name} Demir Doğrama ve Ferforje Çözümleri
-              </h1>
-
-              <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed text-lg">
-                <p>{district.content}</p>
-                <p className="mt-4 text-base text-slate-400">
-                  Başbuğa Metal olarak, {district.name} ilçesi ve çevre mahallelerinde ücretsiz keşif desteğimizle hizmet vermekteyiz. Bina kapısı, otopark kapısı, yangın kapısı, pencere demiri, çelik çatı ve asma kat projelerinizi en kaliteli malzemelerle ve usta işçilikle uyguluyoruz.
-                </p>
-              </div>
-
-              {/* CTAs */}
-              <div className="flex flex-wrap gap-4 pt-4 border-t border-slate-900">
-                <a
-                  href={waUrl}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                  className="flex items-center justify-center space-x-2 bg-[#25D366] hover:bg-[#20ba56] text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-200"
-                >
-                  <MessageSquare className="w-5 h-5 fill-white text-[#25D366]" />
-                  <span>WhatsApp'tan Teklif Al</span>
-                </a>
-                <a
-                  href={`tel:${phoneTel}`}
-                  className="flex items-center justify-center space-x-2 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 hover:border-slate-700 px-8 py-4 rounded-xl font-bold text-base transition-all duration-200"
-                >
-                  <Phone className="w-5 h-5 text-teal-500" />
-                  <span>Hemen Ara: {phoneDisplay}</span>
-                </a>
-              </div>
             </div>
 
             {/* Sidebar */}

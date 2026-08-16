@@ -18,30 +18,12 @@ export interface FAQItem {
   order: number;
 }
 
-export interface BlogPostItem {
-  id: string;
-  title: string;
-  slug: string;
-  summary: string;
-  content: string;
-  tagsJson: string;
-  createdAt: string;
-}
-
 export interface DistrictItem {
   id: string;
   name: string;
   slug: string;
   categorySlug: string;
   content: string;
-}
-
-export interface GuideItem {
-  id: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  targetServiceSlug: string;
 }
 
 export const SERVICES: ServiceItem[] = [
@@ -53,7 +35,7 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Çelik Yapı & Taşıyıcı Sistemler",
     categorySlug: "celik-yapi",
     description: "İş yerleri, depolar, dükkanlar ve yüksek tavanlı yapılar için yüksek taşıma kapasiteli demir/çelik konstrüksiyonlu galeri ve asma kat imalatı.",
-    imageUrl: "/images/islerimiz/asma-kat-1.jpg",
+    imageUrl: "/images/works/works - 12.jpeg",
     featuresJson: JSON.stringify([
       "NPI, NPU ve IPE ağır çelik profil kullanımı",
       "Ahşap, sac veya betonarme zemin alternatifleri",
@@ -70,7 +52,7 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Çelik Yapı & Taşıyıcı Sistemler",
     categorySlug: "celik-yapi",
     description: "Fabrika, sanayi tesisi ve lojistik depolar için tonajlı stoklamaya ve iş makinesi yüklerine dayanıklı ağır çelik asma kat sistemleri.",
-    imageUrl: "/images/islerimiz/agir-celik-asma-kat-1.jpg",
+    imageUrl: "/images/works/works - 27.jpeg",
     featuresJson: JSON.stringify([
       "Ağır sanayi tipi H ve I profil kolonlar",
       "Depreme ve yüksek dinamik yüklere dayanıklı",
@@ -86,8 +68,8 @@ export const SERVICES: ServiceItem[] = [
     slug: "prefabrik-ev-yapimi",
     categoryName: "Çelik Yapı & Taşıyıcı Sistemler",
     categorySlug: "celik-yapi",
-    description: "Hafif çelik karkaslı, ısı ve ses yalıtımlı, depreme dayanıklı modern prefabrik konut ve şantiye binaları imalatı.",
-    imageUrl: "/images/islerimiz/prefabrik-ev-1.jpg",
+    description: "Hafif çelik karkaslı, ısı ve ses yalıtımlı, modern prefabrik hobi bahçesi imalatı.",
+    imageUrl: "/images/works/works - 23.jpeg",
     featuresJson: JSON.stringify([
       "Galvaniz çelik karkas iskelet",
       "A1 sınıfı yanmaz yalıtım panelleri",
@@ -104,7 +86,7 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Çelik Yapı & Taşıyıcı Sistemler",
     categorySlug: "celik-yapi",
     description: "Konteynır, Tiny House ve modüler yapılar için yüksek mukavemetli alt şasi, tekerlekli şasi ve zemin karkası imalatı.",
-    imageUrl: "/images/islerimiz/konteynir-karkas-1.jpg",
+    imageUrl: "/images/works/works - 16.jpeg",
     featuresJson: JSON.stringify([
       "Ağır profil demir ve NPI çelik şasi",
       "Paslanmaz antipas ve epoksi kaplama",
@@ -116,19 +98,19 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     id: "srv-5",
-    name: "Alçıpan ve Bordex Karkas Yapımı",
-    slug: "alcipan-bordex-karkas",
+    name: "Alçıpan ve Mobilya Karkas Yapımı",
+    slug: "alcipan-mobilya-karkas",
     categoryName: "Çelik Yapı & Taşıyıcı Sistemler",
     categorySlug: "celik-yapi",
     description: "İç ve dış mekan bölme duvarlar, asma tavanlar ve cephe giydirmeleri için taşıyıcı galvaniz metal karkas yapımı.",
-    imageUrl: "/images/islerimiz/alcipan-karkas-1.jpg",
+    imageUrl: "/images/works/works - 1.jpeg",
     featuresJson: JSON.stringify([
-      "C ve U profiller ile hassas terazi montajı",
-      "Dış cephe Boardex kaplamaya uygun karkas",
+      "Çelik profiller ile hassas terazi montajı",
+      "Mobilya kaplamaya uygun karkas",
       "Isı ve ses yalıtımı taşyünü boşlukları",
       "Sarsıntılara karşı esnek ve sağlam konstrüksiyon"
     ]),
-    waMessage: "Alçıpan ve Boardex karkas imalatı için fiyat teklifi almak istiyorum.",
+    waMessage: "Alçıpan ve Mobilya karkas imalatı için fiyat teklifi almak istiyorum.",
     order: 5
   },
 
@@ -140,7 +122,7 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Kapı & Otomasyon Sistemleri",
     categorySlug: "kapi-sistemleri",
     description: "Apartman bina giriş kapıları, dükkan kapıları, depo ve garaj için dayanıklı ferforje ve çelik profil demir kapılar.",
-    imageUrl: "/images/islerimiz/kapi-yapimi-1.jpg",
+    imageUrl: "/images/works/works - 10.jpeg",
     featuresJson: JSON.stringify([
       "Kale veya Desi kilit mekanizmaları",
       "Camlı veya sac kaplama ferforje tasarımlar",
@@ -157,7 +139,7 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Kapı & Otomasyon Sistemleri",
     categorySlug: "kapi-sistemleri",
     description: "Bahçe, villa, fabrika ve site girişleri için otomatik motorlu veya manuel yana kayar raylı sürgülü kapı sistemleri.",
-    imageUrl: "/images/islerimiz/surgulu-kapi-1.jpg",
+    imageUrl: "/images/works/works - 22.jpeg",
     featuresJson: JSON.stringify([
       "BFT, Nice İtalyan motor otomasyonu",
       "Emniyet fotoseli ve flaşör ikaz lambası",
@@ -174,7 +156,7 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Kapı & Otomasyon Sistemleri",
     categorySlug: "kapi-sistemleri",
     description: "Modern siteler, konut projeleri ve fabrika alanları için prestijli mimari giriş tagları, çelik konsollar ve yüksek güvenlikli kapılar.",
-    imageUrl: "/images/islerimiz/site-giris-kapi-1.jpg",
+    imageUrl: "/images/works/works - 10.jpeg",
     featuresJson: JSON.stringify([
       "Özel lazer kesim mimari motifler",
       "LED aydınlatma ve tabela uyumlu çelik konsol",
@@ -193,10 +175,10 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Korkuluk & Güvenlik Sistemleri",
     categorySlug: "korkuluk-guvenlik",
     description: "Duvar üstü, bahçe çevresi ve site sınırları için ferforje motifli veya minimalist demir korkuluk imalatı.",
-    imageUrl: "/images/islerimiz/bahce-korkuluk-1.jpg",
+    imageUrl: "/images/works/works - 17.jpeg",
     featuresJson: JSON.stringify([
       "Duvar üstü epoksi ankrajlı sağlam montaj",
-      "Mızraklı ve bıçaklı güvenlik uç alternatifleri",
+      "Mızraklı güvenlik uç alternatifleri",
       "Çift kat antipas ve dış mekan epoksi boya",
       "Özel ölçü imalat ve zengin motif seçenekleri"
     ]),
@@ -210,7 +192,7 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Korkuluk & Güvenlik Sistemleri",
     categorySlug: "korkuluk-guvenlik",
     description: "Zemin ve ilk kat dairelerde çocuk güvenliği ve hırsızlığa karşı yüksek koruma sağlayan dekoratif pencere demirleri.",
-    imageUrl: "/images/islerimiz/pencere-korkuluk-1.jpg",
+    imageUrl: "/images/works/works - 17.jpeg",
     featuresJson: JSON.stringify([
       "Kare ve dolu demir çubuk işçiliği",
       "Açılır akordeon veya sabit korkuluk seçenekleri",
@@ -227,7 +209,7 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Korkuluk & Güvenlik Sistemleri",
     categorySlug: "korkuluk-guvenlik",
     description: "Şantiye alanları, arsa sınırları ve tehlikeli bölgeler için trapez sac, çit panel ve çelik karkaslı geçici/kalıcı çevre kapama.",
-    imageUrl: "/images/islerimiz/insaat-cevre-kapama-1.jpg",
+    imageUrl: "/images/works/works - 14.jpeg",
     featuresJson: JSON.stringify([
       "Renkli trapez sac veya OSB arkası çelik karkas",
       "Rüzgara ve devrilmeye dayanıklı dikme profilleri",
@@ -246,12 +228,12 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Özel Metal İmalat & Yapı Elemanları",
     categorySlug: "ozel-metal-imalat",
     description: "Yangın merdiveni, villa içi döner çelik merdiven, omurgalı merdiven ve dış mekan demir merdiven imalatı.",
-    imageUrl: "/images/islerimiz/merdiven-yapimi-1.jpg",
+    imageUrl: "/images/works/works - 7.jpeg",
     featuresJson: JSON.stringify([
       "Yangın yönetmeliğine uygun tasarım ve imalat",
       "Ahşap, mermer veya çentikli sac basamak kaplama",
       "Statik yük hesaplamalı çelik omurga",
-      "Paslanmaz korkuluk kombinasyonları"
+      "Çelik korkuluk kombinasyonları"
     ]),
     waMessage: "Çelik merdiven yapımı için keşif ve fiyat almak istiyorum.",
     order: 12
@@ -263,12 +245,12 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Özel Metal İmalat & Yapı Elemanları",
     categorySlug: "ozel-metal-imalat",
     description: "Özel tasarım ferforje ürünler, mimari metal aksesuarlar, mağaza dekorasyonu, masalar ve metal konsept işler.",
-    imageUrl: "/images/islerimiz/dekoratif-metal-1.jpg",
+    imageUrl: "/images/works/works - 4.jpeg",
     featuresJson: JSON.stringify([
       "Mimar projelere özel el işçiliği ve hassas üretim",
       "Pirinç, paslanmaz ve siyah demir kombinasyonları",
-      "Eski tip el dövme demir sanatı",
-      "Özel eskitme, pirinç kaplama ve fırın boya"
+      "Özel eskitme, pirinç kaplama ve fırın boya",
+      "Kişiye ve mekâna özel projelendirilen sınırsız metal çözümleri"
     ]),
     waMessage: "Dekoratif metal işçilik ve özel tasarım imalat hakkında görüşmek istiyorum.",
     order: 13
@@ -280,7 +262,7 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Özel Metal İmalat & Yapı Elemanları",
     categorySlug: "ozel-metal-imalat",
     description: "Park, bahçe, site içi ve cadde alanları için dekoratif ferforje ve endüstriyel çelik aydınlatma direkleri imalatı.",
-    imageUrl: "/images/islerimiz/aydinlatma-diregi-1.jpg",
+    imageUrl: "/images/works/works - 25.jpeg",
     featuresJson: JSON.stringify([
       "Sıcak daldırma galvaniz kaplama ile paslanmazlık",
       "Kablo kanallı ve sigorta kapaklı güvenli gövde",
@@ -297,7 +279,7 @@ export const SERVICES: ServiceItem[] = [
     categoryName: "Özel Metal İmalat & Yapı Elemanları",
     categorySlug: "ozel-metal-imalat",
     description: "Fabrikalar ve inşaat projeleri için profil, NPI, IPE, boru ve sac levhaların milimetrik ölçüde kesim, ebatlama ve fason işçiliği.",
-    imageUrl: "/images/islerimiz/olculu-profil-kesim-1.jpg",
+    imageUrl: "/images/works/works - 24.jpeg",
     featuresJson: JSON.stringify([
       "Sulu şerit testere ve plazma/lazer kesim",
       "Açılı (dereceli) profil kesim imkanı",
@@ -341,8 +323,6 @@ export const FAQS: FAQItem[] = [
     order: 5
   }
 ];
-
-export const BLOG_POSTS: BlogPostItem[] = [];
 
 export const DISTRICTS: DistrictItem[] = [
   {
@@ -417,8 +397,6 @@ export const DISTRICTS: DistrictItem[] = [
   }
 ];
 
-export const GUIDES: GuideItem[] = [];
-
 // Data Accessor Utility Functions
 export function getAllServices() {
   return SERVICES.sort((a, b) => a.order - b.order);
@@ -436,18 +414,6 @@ export function getAllDistricts() {
   return DISTRICTS;
 }
 
-export function getDistrictBySlug(slug: string) {
-  return DISTRICTS.find((d) => d.slug === slug);
-}
-
-export function getDistrictByCategorySlug(categorySlug: string) {
-  return DISTRICTS.find((d) => d.categorySlug === categorySlug);
-}
-
 export function getAllFAQs() {
   return FAQS.sort((a, b) => a.order - b.order);
-}
-
-export function getAllBlogPosts() {
-  return BLOG_POSTS;
 }

@@ -1,5 +1,5 @@
 import { getAllServices } from "@/lib/data";
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 export default async function ServiceRedirectPage({
   params,
@@ -17,16 +17,16 @@ export default async function ServiceRedirectPage({
   };
 
   if (categoryMap[slug]) {
-    redirect(`/hizmetler#${categoryMap[slug]}`);
+    permanentRedirect(`/hizmetler#${categoryMap[slug]}`);
   }
 
   const allServices = getAllServices();
   const subService = allServices.find((s: any) => s.slug === slug);
 
   if (subService && (subService as any).categorySlug) {
-    redirect(`/hizmetler#${(subService as any).categorySlug}`);
+    permanentRedirect(`/hizmetler#${(subService as any).categorySlug}`);
   }
 
   // Default fallback redirect to /hizmetler
-  redirect("/hizmetler");
+  permanentRedirect("/hizmetler");
 }
