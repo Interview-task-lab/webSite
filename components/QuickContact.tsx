@@ -53,7 +53,7 @@ export function QuickContactCard({ className = "" }: { className?: string }) {
 
           {/* Form Button */}
           <a
-            href="/iletisim-2"
+            href="/iletisim"
             className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 px-5 py-3 rounded-xl font-semibold text-xs sm:text-sm transition-all hover:-translate-y-0.5"
           >
             <FileText className="w-4 h-4 text-teal-400" />

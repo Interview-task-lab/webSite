@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllServices, getAllDistricts } from "@/lib/data";
+import { getAllServices } from "@/lib/data";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://basbugametal.com";
 
@@ -53,14 +53,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // Dynamic district pages (bölgesel SEO)
-  const districts = getAllDistricts();
-  const districtPages: MetadataRoute.Sitemap = districts.map((district) => ({
-    url: `${SITE_URL}/${district.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
-
-  return [...staticPages, ...servicePages, ...districtPages];
+  return [...staticPages, ...servicePages];
 }

@@ -91,7 +91,7 @@ export default function QuoteForm({ defaultService = "" }: QuoteFormProps) {
         { label: "Ağır Çelik Asma Kat", value: "Ağır Çelik Asma Kat" },
         { label: "Prefabrik Ev Yapımı", value: "Prefabrik Ev Yapımı" },
         { label: "Konteynır Ev Alt Karkas Yapımı", value: "Konteynır Ev Alt Karkas Yapımı" },
-        { label: "Alçıpan ve Bordex Karkas Yapımı", value: "Alçıpan ve Bordex Karkas Yapımı" },
+        { label: "Alçıpan ve Mobilya Karkas Yapımı", value: "Alçıpan ve Mobilya Karkas Yapımı" },
       ],
     },
     {

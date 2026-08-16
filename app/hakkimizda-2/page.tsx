@@ -25,7 +25,7 @@ export default function AboutPage() {
         "Ağır Çelik Asma Kat",
         "Prefabrik Ev Yapımı",
         "Konteynır Ev Alt Karkas Yapımı",
-        "Alçıpan ve Bordex Karkas Yapımı",
+        "Alçıpan ve Mobilya Karkas Yapımı",
       ],
     },
     {

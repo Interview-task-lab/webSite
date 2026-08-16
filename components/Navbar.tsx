@@ -23,7 +23,7 @@ export default function Navbar() {
         { label: "Ağır Çelik Asma Kat", href: "/hizmetler#celik-yapi" },
         { label: "Prefabrik Ev Yapımı", href: "/hizmetler#celik-yapi" },
         { label: "Konteynır Ev Alt Karkas Yapımı", href: "/hizmetler#celik-yapi" },
-        { label: "Alçıpan ve Bordex Karkas", href: "/hizmetler#celik-yapi" },
+        { label: "Alçıpan ve Mobilya Karkas", href: "/hizmetler#celik-yapi" },
       ],
     },
     {
